@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Template</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<div ng-controller="main" class="container">
+		<div class="image-container">
+			<div class="background-img">
+				<img ng-click="coordinates($event)" src="topo-co.jpg">
+			</div>
+			<div ng-repeat="coord in markerCoords" ng-mouseover="shownote($index)" ng-mouseleave="hidenote($index)" class="marker" ng-click="remove($index)" style="
+				top : {{coord.y -75}}px;
+				left : {{coord.x -37.5}}px;
+			">
+				<img src="marker.png">
+				<div class="note" ng-show="coord.visible">{{marker.note}}
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
